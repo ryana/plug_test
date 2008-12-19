@@ -9,7 +9,7 @@ module PlugTest
           if @plug_test_text
             @plug_test_answer = render_to_string(:inline => "<%=" + @plug_test_text + "%>")
           elsif @plug_test_block
-            @plug_test_answer = @plug_test_block.call(@template)
+            @plug_test_answer = @template.instance_eval(&@plug_test_block)
           else
             raise 'You win -- Did you call this method directly?'
           end
