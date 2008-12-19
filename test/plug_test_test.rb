@@ -30,4 +30,19 @@ class PlugTestTest < Test::Unit::TestCase
     assert_match(/\/regular\/test/, res)
   end
 
+  def test_pt_helper_block_sets_response_obj
+    pt_setup
+    pt_helper { |a| a.link_to 'Sweet', :controller => 'regular', :action => 'test' }
+    assert_response :success
+    assert_select 'a', 'Sweet'
+    assert_select HTML::Selector.new("a[href=/regular/test]")
+  end
+
+  def test_pt_helper_block_returns_text
+    pt_setup
+    res = pt_helper { |a| a.link_to 'Sweet', :controller => 'regular', :action => 'test' }
+    assert_match(/Sweet/, res)
+    assert_match(/\/regular\/test/, res)
+  end
+
 end

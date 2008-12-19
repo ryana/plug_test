@@ -33,11 +33,14 @@ Bing bang boom.
 
 Whenever you want to test a helper just call:
 
-  pt_helper(" [CODE YOU WANT TO TEST] ")
+  pt_helper { [CODE YOU WANT TO TEST] }
+
+The only caveat, is that due to a few isms of Rails, you have to structure your blocks so that an argument is passed into the block,
+and all your helper methods use that as a receiver.
 
 pt_helper will return the output of the call and setup your @response so you can do:
 
-  res = pt_helper("link_to 'my link text', :action => 'test'")
+  res = pt_helper { |a| a.link_to 'my link text', :action => 'test' }
   assert_response :success
   assert_select 'a', 'my link text'
   assert(/my link text/.match(res))
