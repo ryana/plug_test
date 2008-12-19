@@ -1,11 +1,19 @@
 module PlugTest
   module TestHelpers
-    def pt_helper(block)
+    def pt_helper(text = nil, &block)
       @controller.plug_test_block = block
+      @controller.plug_test_text = text
 
       class <<@controller
         def overwrite_me
-          @plug_test_answer = render_to_string(:inline => "<%=" + @plug_test_block + "%>")
+          if @plug_test_text
+            @plug_test_answer = render_to_string(:inline => "<%=" + @plug_test_text + "%>")
+          elsif @plug_test_block
+            @plug_test_answer = self.instance_eval(@plug_test_block)
+          else
+            raise 'You win -- Did you call this method directly?'
+          end
+
           render :text => @plug_test_answer
         end
       end

@@ -1,7 +1,7 @@
 class PlugTestController < ApplicationController
   helper :all
 
-  attr_accessor :plug_test_answer, :plug_test_block
+  attr_accessor :plug_test_answer, :plug_test_block, :plug_test_text
 
   def test_action
     overwrite_me
