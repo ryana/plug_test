@@ -10,7 +10,7 @@ Echoe.new('plug_test', '0.1.0') do |p|
   p.email          = "ryan@angilly.com"
   p.ignore_pattern = ["tmp/*", "script/*"]
   p.development_dependencies = []
-  p.clean_pattern.delete_if {|a| /log/.match(a)}
+  p.clean_pattern.delete_if {|a| /log/.match(a) or /gemspec/.match(a)}
 end
 
 Dir["#{File.dirname(__FILE__)}/tasks/*.rake"].sort.each { |ext| load ext }

@@ -1,6 +1,6 @@
 = PlugTest
 
-PlugTest is my solution to what was a shockingly difficult time testing my very first gem/plugin: link_block (http://github.com/ryana/link_block).
+PlugTest is my solution to what was a shockingly difficult time testing my very first gem/plugin: link_block[http://github.com/ryana/link_block].
 After rifling through problem after problem trying to use ActionController::TestCase when testing views helpers, I realized
 that the plugin and helpers worked in the Rails app, so why not just test in there.
 
@@ -17,11 +17,11 @@ ActiveRecord, ActiveResource, or ActionMailer.  The bulk of the code is in PlugT
 
 add the following line to your [PLUGIN_DIR]/test/test_helper.rb (or whatever)
 
-  require File.dirname(__FILE__) + '/plug_test/config/environment'
+  require 'plug_test'
 
 and call the pt_setup method from your TestUnit setup like so:
 
-  class MySweetPlugin < Test::Unit::TestCase
+  class MySweetPluginTest < Test::Unit::TestCase
     def setup
       pt_setup
     end
@@ -46,8 +46,8 @@ It's that easy.  First crack.  It only solves a small need of mine, so fork and 
 
 == Shameless Plug
 
-Recommend me on Working With Rails (http://workingwithrails.com/recommendation/new/person/14860-ryan-angilly) or give
-me a shout out on Twitter (http://twitter.com/angilly) @angilly if you think this is awesome.
+Recommend me on Working With Rails[http://workingwithrails.com/recommendation/new/person/14860-ryan-angilly] or give
+me a shout out on Twitter @angilly[http://twitter.com/angilly] if you think this is awesome.
 
 == MIT License
 

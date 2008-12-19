@@ -1,4 +1,5 @@
 Manifest
+README.rdoc
 plug_test.gemspec
 lib/plug_test/app/log/development.log
 lib/plug_test/app/script/dbconsole
@@ -17,7 +18,6 @@ lib/plug_test/app/script/generate
 lib/plug_test/app/script/console
 lib/plug_test/app/app/controllers/application.rb
 lib/plug_test/app/app/controllers/plug_test_controller.rb
-lib/plug_test/app/README.rdoc
 lib/plug_test/app/test/performance/browsing_test.rb
 lib/plug_test/app/test/test_helper.rb
 lib/plug_test/app/config/initializers/new_rails_defaults.rb
